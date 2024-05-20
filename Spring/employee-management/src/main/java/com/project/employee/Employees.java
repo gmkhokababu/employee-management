@@ -10,7 +10,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-public class Employee {
+public class Employees {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,19 +18,19 @@ public class Employee {
 	String name;
 	String email;
 	String phoneNo;
-	@ManyToOne
-    @JoinColumn(name = "department_id")
-	Department departmentId;
-	@ManyToOne
-    @JoinColumn(name = "role_id")
-	Role roleId;
+//	@ManyToOne
+//    @JoinColumn(name = "departmentId")
+	int departmentId;
+//	@ManyToOne
+//    @JoinColumn(name = "roleId")
+	int roleId;
 	Date dateOfJoining;
 	Double salary;
 	String address;
-	public Employee() {
+	public Employees() {
 		super();
 	}
-	public Employee(int employeeId, String name, String email, String phoneNo, Department departmentId, Role roleId,
+	public Employees(int employeeId, String name, String email, String phoneNo, int departmentId, int roleId,
 			Date dateOfJoining, Double salary, String address) {
 		super();
 		this.employeeId = employeeId;
@@ -67,16 +67,16 @@ public class Employee {
 	public void setPhoneNo(String phoneNo) {
 		this.phoneNo = phoneNo;
 	}
-	public Department getDepartmentId() {
+	public int getDepartmentId() {
 		return departmentId;
 	}
-	public void setDepartmentId(Department departmentId) {
+	public void setDepartmentId(int departmentId) {
 		this.departmentId = departmentId;
 	}
-	public Role getRoleId() {
+	public int getRoleId() {
 		return roleId;
 	}
-	public void setRoleId(Role roleId) {
+	public void setRoleId(int roleId) {
 		this.roleId = roleId;
 	}
 	public Date getDateOfJoining() {
@@ -99,7 +99,7 @@ public class Employee {
 	}
 	@Override
 	public String toString() {
-		return "Employee [employeeId=" + employeeId + ", name=" + name + ", email=" + email + ", phoneNo=" + phoneNo
+		return "Employees [employeeId=" + employeeId + ", name=" + name + ", email=" + email + ", phoneNo=" + phoneNo
 				+ ", departmentId=" + departmentId + ", roleId=" + roleId + ", dateOfJoining=" + dateOfJoining
 				+ ", salary=" + salary + ", address=" + address + ", getEmployeeId()=" + getEmployeeId()
 				+ ", getName()=" + getName() + ", getEmail()=" + getEmail() + ", getPhoneNo()=" + getPhoneNo()
@@ -108,6 +108,7 @@ public class Employee {
 				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
 				+ "]";
 	}
+	
 	
 	
 }
