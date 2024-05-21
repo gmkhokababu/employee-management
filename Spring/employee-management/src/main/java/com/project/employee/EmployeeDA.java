@@ -7,11 +7,10 @@ import java.util.*;
 public class EmployeeDA extends MySqlConnection{
 	
 	String allemployees="select * from employees";
-
+	String addEmployeeStatement="insert into employees(name,email,phoneNo,departmentId,roleId,dateOfJoining,salary,address) values(?,?,?,?,?,?,?,?)";
 	
 	public List<Employees> employees=new ArrayList<>();
 	public List<Employees> allemployees(){
-		System.out.println("dao");
 		try {
 			con=DriverManager.getConnection(url,user,pass);
 			ps=con.prepareStatement(allemployees);
@@ -24,6 +23,26 @@ public class EmployeeDA extends MySqlConnection{
 			System.out.println(e);
 		}
 		return employees;
+	}
+	
+	//____________________________Add Employee______________________________________
+	//(name,email,phoneNo,departmentId,roleId,dateOfJoining,salary,address)
+	public void addEmployee(Employees emp) {
+		try {
+			con=DriverManager.getConnection(url,user,pass);
+			ps=con.prepareStatement(addEmployeeStatement);
+			ps.setString(1, emp.getName());
+			ps.setString(2, emp.getEmail());
+			ps.setString(3, emp.getPhoneNo());
+			ps.setInt(4, emp.getDepartmentId());
+			ps.setInt(5, emp.getRoleId());
+			ps.setDate(6, emp.getDateOfJoining());
+			ps.setDouble(7, emp.getSalary());
+			ps.setString(8, emp.getAddress());
+			ps.executeUpdate();
+		}catch(Exception e) {
+			System.out.println(e);
+		}
 	}
 	
 	

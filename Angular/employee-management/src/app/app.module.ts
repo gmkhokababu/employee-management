@@ -10,6 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
 import { ControllerService } from './service/controller.service';
+import { DepartmentsComponent } from './components/departments/departments.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ControllerService } from './service/controller.service';
     EmployeesComponent,
     LoginComponent,
     AdminComponent,
-    DashboardComponent
+    DashboardComponent,
+    DepartmentsComponent
   ],
   imports: [
     BrowserModule,

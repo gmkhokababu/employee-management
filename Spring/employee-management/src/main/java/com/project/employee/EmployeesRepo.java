@@ -1,7 +1,7 @@
-package com.project.employee;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-public interface EmployeesRepo extends JpaRepository<Employees, Integer>{
-
-}
+//package com.project.employee;
+//
+//import org.springframework.data.jpa.repository.JpaRepository;
+//
+//public interface EmployeesRepo extends JpaRepository<Employees, Integer>{
+//
+//}
